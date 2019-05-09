@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Rock Paper Scissors Part 1</title>
+</head>
+
+<body>
+
+  <div id="game">
+  <h1>Rock Paper Scissors</h1>
+  <h2>Your Choice:  <span id="userChoiceText"></span></h2>
+  <h2>Computer's Choice: <span id="computerChoiceText"></span></h2>
+  <h2>Wins: <span id="wins"></span></h2>
+  <h2>Losses: <span id="losses"></span></h2>
+  <h2>Ties: <span id="ties"></span></h2>
+  
+
+  </div>
+  
+
+  <script type="text/javascript">
+    var computerChoices = ["r", "p", "s"];
+    var userChoiceText = document.getElementById("userChoiceText");
+    var computerChoiceText =document.getElementById("computerChoiceText");
+    var wins = document.getElementById("wins")
+    var losses = document.getElementById("losses")
+    var ties = document.getElementById("ties")
+    var compGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+    tieNumb = 0;
+    winNumb = 0;
+    lossNumb = 0;
+
+    console.log(compGuess);
+
+    
+
+    
+    document.onkeyup = function(event) {
+      var compGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+      var userChoice = event.key;
+
+      if ((userChoice ==="r")||(userChoice ==="p")|| (userChoice ==="s")){
+
+        userChoiceText.textContent = userChoice;
+        computerChoiceText.textContent = compGuess;
+        if (userChoice == compGuess){
+          tieNumb ++;
+          ties.textContent = tieNumb;
+        } else if ((userChoice ==="r") && (compGuess ==="s")){
+          winNumb ++;
+          wins.textContent = winNumb;
+
+        }
+          else if ((userChoice ==="p") && (compGuess ==="r")){
+          winNumb ++;
+          wins.textContent = winNumb;
+          
+          
+        }
+        else if ((userChoice ==="s") && (compGuess ==="p")){
+          winNumb ++;
+          wins.textContent = winNumb;
+         
+        } else {
+          lossNumb ++;
+          losses.textContent = lossNumb;
+        }
+     
+        }
+      
+        
+
+      }
+    
+    
+      
+
+    
+
+   
+    
+  </script>
+
+</body>
+
+</html>
